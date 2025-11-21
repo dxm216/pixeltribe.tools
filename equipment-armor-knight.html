@@ -5,30 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Knight Armor • Pixel Tribe Tools</title>
 
-  <!-- DataTables + responsive + colReorder + REAL column resizing -->
+  <!-- DataTables core + resizing -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/2.0.2/css/colReorder.dataTables.min.css">
-
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
   <script src="https://cdn.datatables.net/colreorder/2.0.2/js/dataTables.colReorder.min.js"></script>
-  <!-- This plugin gives you real click-and-drag column resizing -->
+  <!-- Real resizing plugin -->
   <script src="https://cdn.jsdelivr.net/npm/datatables-colresize@1.0.2/datatables.colresize.js"></script>
 
   <style>
     html,body{height:100%;margin:0;background:#0d0d0d;color:#eee;font-family:Arial;overflow:hidden;}
-    .header{position:fixed;top:0;width:100%;background:#000;color:#ffcc00;padding:14px;text-align:center;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.8);font-size:1.1em;}
+    .header{position:fixed;top:0;width:100%;background:#000;color:#ffcc00;padding:14px;text-align:center;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.8);}
     .header a{color:#ffcc00;text-decoration:none;}
     .main{padding-top:70px;height:100%;box-sizing:border-box;}
-    table.dataTable thead th{background:#222;color:#ffcc00;padding:12px;}
+    table.dataTable thead th{background:#222;color:#ffcc00;padding:12px;position:relative;}
+    table.dataTable thead th::after{content:'';position:absolute;right:0;top:0;bottom:0;width:5px;cursor:col-resize;background:transparent;}
+    table.dataTable thead th:hover::after{background:#ffcc00;opacity:0.5;}
     table.dataTable tbody td{background:#111;padding:8px 4px;text-align:center;font-size:0.94em;}
     table.dataTable tbody tr:hover{background:#1f1f1f;}
     .dataTables_filter input{background:#000;color:#ffcc00;border:1px solid #ffcc00;border-radius:4px;padding:6px;}
     .dataTables_length select,.dataTables_info{color:#ffcc00;}
     .paginate_button{color:#ffcc00!important;background:#000!important;border:1px solid #ffcc00!important;}
     .paginate_button.current{background:#ffcc00!important;color:#000!important;}
+    .loading {text-align:center;color:#ffcc00;font-size:1.2em;margin:50px 0;}
+    .error {color:#ff4444;text-align:center;margin:50px 0;}
   </style>
 </head>
 <body>
@@ -39,21 +42,35 @@
   </div>
 
   <div class="main">
-    <table id="knightTable" class="display responsive nowrap" style="width:100%">
+    <div id="loading" class="loading">Loading Knight Armor data... (first time takes ~30s)</div>
+    <div id="error" class="error" style="display:none;">Load failed—refresh or check sheet publish.</div>
+    <table id="knightTable" class="display responsive nowrap" style="width:100%;display:none;">
       <thead>
         <tr>
           <th>Level</th><th>Class</th><th>Tier</th><th>Type</th><th>Item Name</th>
-          <th>Def</th><th>M Def</th><th>Str</th><th>Agil</th><th>HP</th><th>How to Obtain</th>
+          <th>Def (min)</th><th>Def (max)</th><th>M Def (min)</th><th>M Def (max)</th>
+          <th>Str (min)</th><th>Str (max)</th><th>Agil (min)</th><th>Agil (max)</th><th>HP (min)</th><th>HP (max)</th><th>How to Obtain</th>
         </tr>
       </thead>
-      <tbody></tbody> <!-- Data loaded automatically from your CSV -->
+      <tbody></tbody>
     </table>
   </div>
 
   <script>
     $(document).ready(function() {
       $('#knightTable').DataTable({
-        ajax: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy-20CSaKPA1NezLhzfUw_a_5BRoQjqJ9wei4ZJ-rP6e3ZZ0KHt2H-VRnzeR3jDSGnbYsaTTLv5Qay/pub?output=csv',
+        ajax: {
+          url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy-20CSaKPA1NezLhzfUw_a_5BRoQjqJ9wei4ZJ-rP6e3ZZ0KHt2H-VRnzeR3jDSGnbYsaTTLv5Qay/pub?output=csv',
+          dataSrc: function(json) {
+            // Handle CSV as text
+            return Papa.parse(json, {header: true, dynamicTyping: false}).data;
+          },
+          error: function() {
+            $('#loading').hide();
+            $('#error').show();
+            $('#knightTable').hide();
+          }
+        },
         processing: true,
         paging: true,
         pageLength: 25,
@@ -64,17 +81,22 @@
         scrollY: 'calc(100vh - 80px)',
         scrollCollapse: true,
         order: [[0, 'asc']],
-        // REAL click-and-drag column resizing + remembers user widths
         colResize: {
           isEnabled: true,
           hoverClass: 'dt-colresizable-hover',
           minWidth: 30,
-          saveState: true,
-          saveStateDuration: -1  // forever
+          saveState: true
+        },
+        drawCallback: function() {
+          $('#loading').hide();
+          $('#knightTable').show();
         }
       });
     });
   </script>
+
+  <!-- CSV parser (free CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 </body>
 </html>
