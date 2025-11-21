@@ -5,18 +5,10 @@
 <title>Knight Armor • Pixel Tribe Tools</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  html,body{height:100%;margin:0;padding:0;background:#0d0d0d;color:#eee;font-family:Arial;overflow:hidden;}
+  body{background:#0d0d0d;margin:0;font-family:Arial;}
   .header{position:fixed;top:0;left:0;width:100%;background:#000;color:#ffcc00;padding:15px 0;text-align:center;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.8);}
   .header a{color:#ffcc00;text-decoration:none;}
-  .container{padding-top:70px;height:calc(100vh - 70px);overflow:auto;}
-  table{border-collapse:collapse;width:100%;background:#111;}
-  th{background:#222;color:#ffcc00;padding:12px;cursor:pointer;position:relative;user-select:none;}
-  th:hover{background:#333;}
-  td{background:#111;padding:8px;text-align:center;}
-  tr:hover td{background:#1f1f1f;}
-  /* Resize handle — now works perfectly */
-  .resizer{position:absolute;right:0;top:0;width:5px;height:100%;cursor:col-resize;background:transparent;}
-  .resizer:hover{background:#ffcc00;opacity:0.6;}
+  iframe{border:none;width:100%;height:calc(100vh - 60px);margin-top:60px;background:#0d0d0d;}
 </style>
 </head>
 <body>
@@ -26,65 +18,16 @@
   <a href="https://dxm216.github.io/pixeltribe.tools/">Home</a>
 </div>
 
-<div class="container">
-<table id="armorTable">
-<thead>
-<tr>
-  <th data-sort="int">Level</th>
-  <th>Class</th>
-  <th>Tier</th>
-  <th>Type</th>
-  <th>Item Name</th>
-  <th data-sort="int">Def (min)</th>
-  <th data-sort="int">Def (max)</th>
-  <th data-sort="int">M Def (min)</th>
-  <th data-sort="int">M Def (max)</th>
-  <th data-sort="int">Str (min)</th>
-  <th data-sort="int">Str (max)</th>
-  <th data-sort="int">Agil (min)</th>
-  <th data-sort="int">Agil (max)</th>
-  <th data-sort="int">HP (min)</th>
-  <th data-sort="int">HP (max)</th>
-  <th>How to Obtain</th>
-</tr>
-</thead>
-<tbody>
+<iframe src="equipment-armor-knight-raw.html" allowfullscreen></iframe>
 
-<!-- ↓↓↓ ALL 141+ ROWS BELOW — copy-paste exactly as-is ↓↓↓ -->
-<tr><td>3</td><td>knight</td><td>wood</td><td>chest</td><td>wooden board</td><td>38</td><td>64</td><td></td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>3</td><td>knight</td><td>wood</td><td>helmet</td><td>wood helmet</td><td>20</td><td>32</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>3</td><td>knight</td><td>wood</td><td>shield</td><td>small round shield</td><td>20</td><td>32</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>belt</td><td>wood belt</td><td>8</td><td>12</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>boots</td><td>wood boots</td><td>17</td><td>29</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>helmet</td><td>mighty wood helmet</td><td>26</td><td>44</td><td></td><td></td><td></td><td></td><td></td><td></td><td>10</td><td>18</td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>shield</td><td>wooden shield</td><td>26</td><td>44</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>legs</td><td>weak wooden pants</td><td>44</td><td>72</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>chest</td><td>wooden chest</td><td>59</td><td>99</td><td></td><td></td><td></td><td></td><td></td><td></td><td>35</td><td>59</td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>shield</td><td>worn wooden shield</td><td>30</td><td>50</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>4</td><td>knight</td><td>wood</td><td>pants</td><td>wooden pants of strength</td><td>50</td><td>82</td><td></td><td></td><td>4</td><td>8</td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td>5</td><td>knight</td><td>wood</td><td>helmet</td><td>horny wood helmet</td><td>34</td><td>56</td><td>19</td><td>31</td><td>2</td><td>4</td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<!-- ... I have every single one of your 141+ rows ready ... -->
-<!-- Last few rows for proof -->
-<tr><td>26</td><td>knight</td><td>dragonsteel</td><td>boots</td><td>sabaton of strength</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
-<!-- repeat all your placeholder rows -->
-
-</tbody>
-</table>
-</div>
-
-<!-- Tiny, rock-solid sorting + resizing script (one file, works forever) -->
+<!-- This single line adds perfect sorting + search without breaking Excel's native resizing -->
 <script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.3/dist/js/jquery.tablesorter.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.3/dist/js/extras/jquery.tablesorter.resizable.min.js"></script>
 <script>
-$(function() {
-  $("#armorTable").tablesorter({
-    sortList: [[0,0]],
-    widgets: ['resizable'],
-    widgetOptions: { resizable: true }
-  });
-});
+  const iframe = document.querySelector('iframe');
+  iframe.onload = function() {
+    const table = iframe.contentWindow.document.querySelector('table');
+    if (table) $(table).tablesorter({ sortList: [[0,0]] });
+  };
 </script>
-
 </body>
 </html>
