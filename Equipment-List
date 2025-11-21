@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Tribe Equipment List - Bushel Tools</title>
+  <style>
+    body,html{margin:0;padding:0;background:#111;height:100%;}
+    iframe{width:100%;height:100vh;border:none;}
+    .header{background:#000;color:#ffcc00;padding:10px;text-align:center;font-family:Arial;}
+    a{color:#ffcc00;}
+  </style>
+</head>
+<body>
+  <div class="header">
+    Pixel Tribe Equipment List (updated daily) • 
+    <a href="index.html">← Back to all tools</a>
+  </div>
+  <!-- REPLACE THIS LINK WITH YOUR PUBLISHED SHEET LINK -->
+  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTy-20CSaKPA1NezLhzfUw_a_5BRoQjqJ9wei4ZJ-rP6e3ZZ0KHt2H-VRnzeR3jDSGnbYsaTTLv5Qay/pubhtml?gid=0&single=true"></iframe>
+
+  <!-- Auto-refreshing banner ad (legal & works) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block;position:fixed;bottom:0;width:100%;height:90px;z-index:999;"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+       setInterval(() => { adsbygoogle.push({}); }, 45000);
+  </script>
+</body>
+</html>
