@@ -10,6 +10,24 @@
   .header a{color:#ffcc00;text-decoration:none;}
   iframe{border:none;width:100%;height:calc(100vh - 60px);margin-top:60px;background:#0d0d0d;}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.3/dist/js/jquery.tablesorter.min.js"></script>
+<script>
+  const iframe = document.querySelector('iframe');
+  iframe.onload = function() {
+    const table = iframe.contentDocument.querySelector('table');
+    if (table) {
+      // Dark theme + your colors
+      iframe.contentDocument.body.style.background = '#0d0d0d';
+      const ths = iframe.contentDocument.querySelectorAll('th');
+      ths.forEach(th => { th.style.background = '#222'; th.style.color = '#ffcc00'; });
+      const tds = iframe.contentDocument.querySelectorAll('td');
+      tds.forEach(td => td.style.background = '#111');
+      // Add sorting
+      $(table).tablesorter({sortList: [[0,0]]});
+    }
+  };
+</script>
 </head>
 <body>
 
@@ -18,16 +36,7 @@
   <a href="https://dxm216.github.io/pixeltribe.tools/">Home</a>
 </div>
 
-<iframe src="equipment-armor-knight-raw.html" allowfullscreen></iframe>
+<iframe src="equipment-armor-knight-raw.html"></iframe>
 
-<!-- This single line adds perfect sorting + search without breaking Excel's native resizing -->
-<script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.3/dist/js/jquery.tablesorter.min.js"></script>
-<script>
-  const iframe = document.querySelector('iframe');
-  iframe.onload = function() {
-    const table = iframe.contentWindow.document.querySelector('table');
-    if (table) $(table).tablesorter({ sortList: [[0,0]] });
-  };
-</script>
 </body>
 </html>
