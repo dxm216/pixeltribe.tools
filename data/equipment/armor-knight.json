@@ -1,0 +1,38 @@
+[
+  {
+    "level": 3,
+    "class": "knight",
+    "tier": "wood",
+    "type": "chest",
+    "name": "wooden board",
+    "def_min": 38,
+    "def_max": 64,
+    "mdef_min": "--",
+    "mdef_max": "--",
+    "str_min": "--",
+    "str_max": 5,
+    "agil_min": "--",
+    "agil_max": "--",
+    "hp_min": "--",
+    "hp_max": "--",
+    "obtain": "crafting"
+  },
+  {
+    "level": 12,
+    "class": "knight",
+    "tier": "bronze",
+    "type": "helmet",
+    "name": "bronze helm",
+    "def_min": 88,
+    "def_max": 112,
+    "mdef_min": 6,
+    "mdef_max": 10,
+    "str_min": 2,
+    "str_max": 6,
+    "agil_min": "--",
+    "agil_max": 1,
+    "hp_min": 10,
+    "hp_max": 30,
+    "obtain": "loot"
+  }
+]
