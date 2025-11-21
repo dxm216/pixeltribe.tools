@@ -11,12 +11,13 @@
     .dropdowns{margin:50px 0;}
     select{
       background:#000;color:#ffcc00;border:2px solid #ffcc00;padding:14px 50px 14px 20px;
-      font-size:18px;margin:12px;border-radius:8px;cursor:pointer;min-width:280px;
+      font-size:18px;margin:12px;border-radius:8px;cursor:pointer;min-width:300px;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffcc00' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
       background-repeat:no-repeat;background-position:right 20px center;
     }
     select:hover{border-color:#fff;}
     footer{margin-top:80px;color:#888;}
+    a{color:#ff Vatcc00;}
   </style>
 </head>
 <body>
@@ -28,9 +29,9 @@
 
       <!-- 1. Equipment -->
       <select onchange="if(this.value)window.location=this.value;">
-        <option>Equipment ▼</option>
+        <option>Equipment</option>
         <optgroup label="Armor">
-          <option value="equipment-armor-knight.html">Knight</option>
+          <option value="https://dxm216.github.io/pixeltribe.tools/equipment-armor-knight.html">Knight</option>
           <option disabled>Archer (soon)</option>
           <option disabled>Mage (soon)</option>
         </optgroup>
@@ -46,7 +47,7 @@
 
       <!-- 2. Skills -->
       <select onchange="if(this.value)window.location=this.value;">
-        <option>Skills ▼</option>
+        <option>Skills</option>
         <option disabled>Farming (soon)</option>
         <option disabled>Ranching (soon)</option>
         <option disabled>Woodcutting (soon)</option>
@@ -57,7 +58,7 @@
 
       <!-- 3. Crafting -->
       <select onchange="if(this.value)window.location=this.value;">
-        <option>Crafting ▼</option>
+        <option>Crafting</option>
         <option disabled>Wood Recipes (soon)</option>
         <option disabled>Stone Recipes (soon)</option>
         <option disabled>Cloth Recipes (soon)</option>
@@ -68,7 +69,7 @@
     </div>
 
     <footer>
-      Made by dxm216 • <a href="https://ko-fi.com/dxm216" style="color:#ffcc00;">Buy me a coffee ♥</a>
+      Made by dxm216 • <a href="https://ko-fi.com/dxm216">Buy me a coffee</a>
     </footer>
   </div>
 </body>
