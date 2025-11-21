@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Tribe Tools - Calculators & Guides</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #0d0d0d; color: #eee; margin: 40px; text-align: center; }
-        h1 { color: #ffcc00; }
-        .container { max-width: 900px; margin: 0 auto; }
-        .tool { background: #1a1a1a; padding: 20px; margin: 20px 0; border-radius: 10px; }
-        iframe { width: 100%; height: 800px; border: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Tribe Tools • dxm216</title>
+  <style>
+    body,html{margin:0;padding:0;background:#0d0d0d;color:#eee;font-family:Arial,sans-serif;}
+    .container{max-width:900px;margin:40px auto;padding:20px;text-align:center;}
+    h1{color:#ffcc00;font-size:2.5em;margin:0;}
+    p{font-size:1.2em;}
+    .dropdown-container{margin:40px 0;}
+    select{
+      background:#000;color:#ffcc00;border:2px solid #ffcc00;padding:12px 40px 12px 16px;
+      font-size:18px;border-radius:8px;cursor:pointer;appearance:none;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/200200/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23ffcc00" d="M0 0l6 8 6-8z"/></svg>');
+      background-repeat:no-repeat;background-position:right 16px center;
+    }
+    select:hover{border-color:#fff;}
+    .links a{margin:0 15px;color:#ffcc00;font-size:1.1em;text-decoration:none;}
+    .links a:hover{text-decoration:underline;}
+    footer{margin-top:60px;color:#888;font-size:0.9em;}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Pixel Tribe Tools</h1>
-        <p>Free calculators & spreadsheets — updated after every patch</p>
+  <div class="container">
+    <h1>Pixel Tribe Tools</h1>
+    <p>Free, updated-daily calculators & databases • made by dxm216</p>
 
-        <div class="tool">
-            <h2>Viking Builder & Raid Calculator</h2>
-            <p>Coming in 5 minutes — loading the sheet...</p>
-            <!-- We’ll paste the real iframe here in a minute -->
-        </div>
-
-        <p>Made by [Your Name] • <a href="https://ko-fi.com/yourname">Buy me a coffee</a></p>
+    <!-- Equipment Dropdown -->
+    <div class="dropdown-container">
+      <select onchange="if(this.value) window.location=this.value;">
+        <option value="">Equipment ▼</option>
+        <option value="equipment-knight.html">Knight Armor & Weapons</option>
+        <option value="equipment-archer.html">Archer Armor & Weapons</option>
+        <option value="equipment-mage.html">Mage Armor & Weapons</option>
+      </select>
     </div>
+
+    <!-- Other Tools -->
+    <div class="links">
+      <a href="equipment-list.html">Full Equipment List</a> • 
+      <a href="resource-tracker.html">Resource Tracker</a> • 
+      <a href="raid-calculator.html">Raid Calculator</a> • 
+      <a href="daily-checklist.html">Daily Checklist</a>
+    </div>
+
+    <footer>
+      <p>Live site → dxm216.github.io/pixeltribe.tools<br>
+      <a href="https://ko-fi.com/dxm216" style="color:#ffcc00;">Buy me a coffee ♥</a></p>
+    </footer>
+  </div>
 </body>
 </html>
