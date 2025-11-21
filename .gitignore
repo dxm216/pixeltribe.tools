@@ -1,0 +1,17 @@
+# Windows junk
+Thumbs.db
+Desktop.ini
+
+# Mac junk
+.DS_Store
+
+# Editor temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Netlify / local build files
+.netlify
+.dist
+.node_modules
