@@ -1,65 +1,57 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <title>Knight Armor — Pixel Tribe Tools</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="/assets/css/site.css">
-  <!-- Tabulator CSS CDN (or bundle locally) -->
-  <link href="https://unpkg.com/tabulator-tables@5.5.1/dist/css/tabulator.min.css" rel="stylesheet">
-  <!-- AdSense placeholder: replace with your publisher script & ad slot when approved -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_PUBLISHER_ID" crossorigin="anonymous"></script> -->
+  <meta charset="UTF-8">
+  <title>Knight Armor</title>
+
+  <!-- Tabulator CSS -->
+  <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
 </head>
+
 <body>
-  <div id="site-header"></div>
 
-  <main class="container">
-    <h2>Knight Armor</h2>
+  <!-- HEADER -->
+  <div id="header-container"></div>
 
-    <div class="table-wrap">
-      <div id="knight-table" style="min-height:300px;"></div>
-    </div>
-    <p class="muted">Data updates from JSON in <code>/data/equipment/armor-knight.json</code></p>
-  </main>
+  <h1>Knight Armor</h1>
 
-  <div id="site-footer"></div>
+  <!-- Table container -->
+  <div id="knight-table"></div>
 
-  <!-- Tabulator JS CDN (or bundle locally) -->
-  <script type="module" src="https://unpkg.com/tabulator-tables@5.5.1/dist/js/tabulator_min.js"></script>
-  <script src="/assets/js/header-footer.js"></script>
+  <!-- FOOTER -->
+  <div id="footer-container"></div>
+
+  <!-- Tabulator JS -->
+  <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+
+  <!-- Common table settings -->
   <script src="/assets/js/tabulator-common.js"></script>
 
-  <script>
-    // Quick page-specific wrapper to build the table; tabulator-common.js exposes createTable helper
-    document.addEventListener("DOMContentLoaded", async () => {
-      const tableEl = document.getElementById("knight-table");
-      const dataUrl = "/data/equipment/armor-knight.json";
-      // columns: 15 columns as requested
-      const columns = [
-        {title:"Level", field:"level", hozAlign:"center", headerSort:true, width:80},
-        {title:"Class", field:"class", headerSort:true, width:90},
-        {title:"Tier", field:"tier", headerSort:true, width:100},
-        {title:"Type", field:"type", headerSort:true, width:90},
-        {title:"Name", field:"name", headerSort:true, headerFilter:"input", responsive:0},
-        {title:"DEF Min", field:"def_min", headerSort:true, hozAlign:"center"},
-        {title:"DEF Max", field:"def_max", headerSort:true, hozAlign:"center"},
-        {title:"MDEF Min", field:"mdef_min", headerSort:true, hozAlign:"center"},
-        {title:"MDEF Max", field:"mdef_max", headerSort:true, hozAlign:"center"},
-        {title:"STR Min", field:"str_min", headerSort:true, hozAlign:"center"},
-        {title:"STR Max", field:"str_max", headerSort:true, hozAlign:"center"},
-        {title:"AGI Min", field:"agil_min", headerSort:true, hozAlign:"center"},
-        {title:"AGI Max", field:"agil_max", headerSort:true, hozAlign:"center"},
-        {title:"HP Min", field:"hp_min", headerSort:true, hozAlign:"center"},
-        {title:"Obtain", field:"obtain", headerSort:true, width:120}
-      ];
+  <!-- Header/footer loader -->
+  <script src="/assets/templates/header-footer.js"></script>
 
-      // Use helper from tabulator-common.js to create the table with consistent options
-      createTabulatorTable(tableEl, dataUrl, columns, {
-        groupBy: "tier",           // group by tier
-        initialSort: [{column:"level", dir:"asc"}],
-        placeholder: "No data found",
-      });
-    });
+  <script>
+    const columns = [
+      {title: "Level", field: "level"},
+      {title: "Class", field: "class"},
+      {title: "Tier", field: "tier"},
+      {title: "Type", field: "type"},
+      {title: "Name", field: "name"},
+      {title: "DEF Min", field: "def_min"},
+      {title: "DEF Max", field: "def_max"},
+      {title: "MDEF Min", field: "mdef_min"},
+      {title: "MDEF Max", field: "mdef_max"},
+      {title: "STR Min", field: "str_min"},
+      {title: "STR Max", field: "str_max"},
+      {title: "AGI Min", field: "agil_min"},
+      {title: "AGI Max", field: "agil_max"},
+      {title: "HP Min", field: "hp_min"},
+      {title: "HP Max", field: "hp_max"},
+      {title: "Obtain", field: "obtain"}
+    ];
+
+    loadTable("#knight-table", "/data/equipment/armor-knight.json", columns);
   </script>
+
 </body>
 </html>
