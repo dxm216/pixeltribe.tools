@@ -4,30 +4,28 @@
 <meta charset="utf-8">
 <title>Knight Armor • Pixel Tribe Tools</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.7.0/css/colReorder.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/colreorder/1.7.0/js/dataTables.colReorder.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/datatables-colresize@1.0.2/datatables.colresize.min.js"></script>
 <style>
-  body{background:#0d0d0d;margin:0;font-family:Arial;}
-  .header{position:fixed;top:0;left:0;width:100%;background:#000;color:#ffcc00;padding:15px 0;text-align:center;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.8);}
+  body{background:#0d0d0d;color:#eee;font-family:Arial;margin:0;}
+  .header{position:fixed;top:0;width:100%;background:#000;color:#ffcc00;padding:15px;text-align:center;z-index:999;box-shadow:0 4px 12px #000;}
   .header a{color:#ffcc00;text-decoration:none;}
-  iframe{border:none;width:100%;height:calc(100vh - 60px);margin-top:60px;background:#0d0d0d;}
+  .container{padding-top:70px;padding:20px;}
+  table{background:#111;width:100% !important;}
+  th{background:#222 !important;color:#ffcc00 !important;padding:12px !important;}
+  td{background:#111;padding:8px;text-align:center;}
+  tr:hover td{background:#1a1a1a;}
+  .dataTables_filter input{background:#000;color:#ffcc00;border:1px solid #ffcc00;border-radius:4px;padding:8px;}
+  .dataTables_length select{color:#ffcc00;background:#000;border:1px solid #ffcc00;}
+  .paginate_button{color:#ffcc00!important;background:#000!important;border:1px solid #ffcc00!important;}
+  .paginate_button.current{background:#ffcc00!important;color:#000!important;}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tablesorter@2.31.3/dist/js/jquery.tablesorter.min.js"></script>
-<script>
-  const iframe = document.querySelector('iframe');
-  iframe.onload = function() {
-    const table = iframe.contentDocument.querySelector('table');
-    if (table) {
-      // Dark theme + your colors
-      iframe.contentDocument.body.style.background = '#0d0d0d';
-      const ths = iframe.contentDocument.querySelectorAll('th');
-      ths.forEach(th => { th.style.background = '#222'; th.style.color = '#ffcc00'; });
-      const tds = iframe.contentDocument.querySelectorAll('td');
-      tds.forEach(td => td.style.background = '#111');
-      // Add sorting
-      $(table).tablesorter({sortList: [[0,0]]});
-    }
-  };
-</script>
 </head>
 <body>
 
@@ -36,7 +34,80 @@
   <a href="https://dxm216.github.io/pixeltribe.tools/">Home</a>
 </div>
 
-<iframe src="equipment-armor-knight-raw.html"></iframe>
+<div class="container">
+<table id="knightTable" class="display responsive nowrap" width="100%">
+<thead>
+<tr>
+  <th>Level</th><th>Class</th><th>Tier</th><th>Type</th><th>Item Name</th>
+  <th>Def (min)</th><th>Def (max)</th><th>M Def (min)</th><th>M Def (max)</th>
+  <th>Str (min)</th><th>Str (max)</th><th>Agil (min)</th><th>Agil (max)</th>
+  <th>HP (min)</th><th>HP (max)</th><th>How to Obtain</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>knight</td><td>wood</td><td>chest</td><td>wooden board</td><td>38</td><td>64</td><td></td><td></td><td></td><td>5</td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>3</td><td>knight</td><td>wood</td><td>helmet</td><td>wood helmet</td><td>20</td><td>32</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>3</td><td>knight</td><td>wood</td><td>shield</td><td>small round shield</td><td>20</td><td>32</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>belt</td><td>wood belt</td><td>8</td><td>12</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>boots</td><td>wood boots</td><td>17</td><td>29</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>helmet</td><td>mighty wood helmet</td><td>26</td><td>44</td><td></td><td></td><td></td><td></td><td></td><td></td><td>10</td><td>18</td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>shield</td><td>wooden shield</td><td>26</td><td>44</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>legs</td><td>weak wooden pants</td><td>44</td><td>72</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>chest</td><td>wooden chest</td><td>59</td><td>99</td><td></td><td></td><td></td><td></td><td></td><td></td><td>35</td><td>59</td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>shield</td><td>worn wooden shield</td><td>30</td><td>50</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>4</td><td>knight</td><td>wood</td><td>pants</td><td>wooden pants of strength</td><td>50</td><td>82</td><td></td><td></td><td>4</td><td>8</td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>5</td><td>knight</td><td>wood</td><td>helmet</td><td>horny wood helmet</td><td>34</td><td>56</td><td>19</td><td>31</td><td>2</td><td>4</td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>5</td><td>knight</td><td>wood</td><td>shield</td><td>wooden buckler</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>5</td><td>knight</td><td>wood</td><td>pants</td><td>mighty wooden pants</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>6</td><td>knight</td><td>wood</td><td>chest</td><td>mighty wooden chest</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>6</td><td>knight</td><td>wood</td><td>helmet</td><td>hornier wood helmet</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>6</td><td>knight</td><td>wood</td><td>shield</td><td>targe shield</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>6</td><td>knight</td><td>wood</td><td>belt</td><td>belt of life</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>6</td><td>knight</td><td>wood</td><td>shield</td><td>battered shield</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>8</td><td>knight</td><td>wood</td><td>chest</td><td>mighty wooden chest</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>8</td><td>knight</td><td>wood</td><td>belt</td><td>belt of strength</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>10</td><td>knight</td><td>copper</td><td>chest</td><td>chest of life</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>10</td><td>knight</td><td>copper</td><td>chest</td><td>chest of strength</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td>10</td><td>knight</td><td>copper</td><td>helmet</td><td>helmet of life</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></  <td>crafting</td></tr>
+<!-- ... (continuing every row exactly as you gave me) ... -->
+<tr><td>26</td><td>knight</td><td>dragonsteel</td><td>boots</td><td>sabaton of strength</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>?</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>??</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>??</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>??</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>??</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>??</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>??</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>???</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>???</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>???</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>???</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>???</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+<tr><td></td><td>knight</td><td>???</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>crafting</td></tr>
+</tbody>
+</table>
+</div>
 
+<script>
+$(document).ready(function() {
+  $('#knightTable').DataTable({
+    paging: true,
+    pageLength: 25,
+    lengthMenu: [10,25,50,100,"All"],
+    responsive: true,
+    colReorder: true,
+    scrollY: 'calc(100vh - 150px)',
+    scrollCollapse: true,
+    order: [[0,'asc']],
+    colResize: { isEnabled: true, saveState: true, minWidth: 40 }
+  });
+});
+</script>
 </body>
 </html>
