@@ -5,49 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Tribe Tools • dxm216</title>
   <style>
-    body,html{margin:0;padding:0;background:#0d0d0d;color:#eee;font-family:Arial,sans-serif;}
-    .container{max-width:900px;margin:40px auto;padding:20px;text-align:center;}
-    h1{color:#ffcc00;font-size:2.5em;margin:0;}
-    p{font-size:1.2em;}
-    .dropdown-container{margin:40px 0;}
+    body{background:#0d0d0d;color:#eee;font-family:Arial,sans-serif;margin:0;padding:20px;text-align:center;}
+    .container{max-width:960px;margin:0 auto;}
+    h1{color:#ffcc00;font-size:2.8em;margin:20px 0 10px;}
+    .dropdowns{margin:50px 0;}
     select{
-      background:#000;color:#ffcc00;border:2px solid #ffcc00;padding:12px 40px 12px 16px;
-      font-size:18px;border-radius:8px;cursor:pointer;appearance:none;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/200200/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23ffcc00" d="M0 0l6 8 6-8z"/></svg>');
-      background-repeat:no-repeat;background-position:right 16px center;
+      background:#000;color:#ffcc00;border:2px solid #ffcc00;padding:14px 50px 14px 20px;
+      font-size:18px;margin:12px;border-radius:8px;cursor:pointer;min-width:280px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffcc00' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;background-position:right 20px center;
     }
     select:hover{border-color:#fff;}
-    .links a{margin:0 15px;color:#ffcc00;font-size:1.1em;text-decoration:none;}
-    .links a:hover{text-decoration:underline;}
-    footer{margin-top:60px;color:#888;font-size:0.9em;}
+    footer{margin-top:80px;color:#888;}
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Pixel Tribe Tools</h1>
-    <p>Free, updated-daily calculators & databases • made by dxm216</p>
+    <p>Free calculators, databases & planners • updated daily</p>
 
-    <!-- Equipment Dropdown -->
-    <div class="dropdown-container">
-      <select onchange="if(this.value) window.location=this.value;">
-        <option value="">Equipment ▼</option>
-        <option value="equipment-knight.html">Knight Armor & Weapons</option>
-        <option value="equipment-archer.html">Archer Armor & Weapons</option>
-        <option value="equipment-mage.html">Mage Armor & Weapons</option>
+    <div class="dropdowns">
+
+      <!-- 1. Equipment -->
+      <select onchange="if(this.value)window.location=this.value;">
+        <option>Equipment ▼</option>
+        <optgroup label="Armor">
+          <option value="equipment-armor-knight.html">Knight</option>
+          <option disabled>Archer (soon)</option>
+          <option disabled>Mage (soon)</option>
+        </optgroup>
+        <optgroup label="Weapons">
+          <option disabled>Knight (soon)</option>
+          <option disabled>Archer (soon)</option>
+          <option disabled>Mage (soon)</option>
+        </optgroup>
+        <optgroup label="Accessories">
+          <option disabled>All Accessories (soon)</option>
+        </optgroup>
       </select>
-    </div>
 
-    <!-- Other Tools -->
-    <div class="links">
-      <a href="equipment-list.html">Full Equipment List</a> • 
-      <a href="resource-tracker.html">Resource Tracker</a> • 
-      <a href="raid-calculator.html">Raid Calculator</a> • 
-      <a href="daily-checklist.html">Daily Checklist</a>
+      <!-- 2. Skills -->
+      <select onchange="if(this.value)window.location=this.value;">
+        <option>Skills ▼</option>
+        <option disabled>Farming (soon)</option>
+        <option disabled>Ranching (soon)</option>
+        <option disabled>Woodcutting (soon)</option>
+        <option disabled>Mining & Smithing (soon)</option>
+        <option disabled>Construction (soon)</option>
+        <option disabled>Cooking (soon)</option>
+      </select>
+
+      <!-- 3. Crafting -->
+      <select onchange="if(this.value)window.location=this.value;">
+        <option>Crafting ▼</option>
+        <option disabled>Wood Recipes (soon)</option>
+        <option disabled>Stone Recipes (soon)</option>
+        <option disabled>Cloth Recipes (soon)</option>
+        <option disabled>Leather Recipes (soon)</option>
+        <option disabled>Rune Recipes (soon)</option>
+      </select>
+
     </div>
 
     <footer>
-      <p>Live site → dxm216.github.io/pixeltribe.tools<br>
-      <a href="https://ko-fi.com/dxm216" style="color:#ffcc00;">Buy me a coffee ♥</a></p>
+      Made by dxm216 • <a href="https://ko-fi.com/dxm216" style="color:#ffcc00;">Buy me a coffee ♥</a>
     </footer>
   </div>
 </body>
