@@ -5,36 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Knight Armor • Pixel Tribe Tools</title>
 
-  <!-- DataTables core -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
-  <!-- The magic plugin for real column resizing -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/2.0.2/css/colReorder.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.1/css/fixedHeader.dataTables.min.css">
+  <!-- DataTables + responsive + colReorder + REAL column resizing -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/colreorder/2.0.2/css/colReorder.dataTables.min.css">
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/colreorder/2.0.2/js/dataTables.colReorder.min.js"></script>
-  <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.min.js"></script>
-  <!-- THIS IS THE ONE THAT ADDS CLICK-AND-DRAG RESIZING -->
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+  <script src="https://cdn.datatables.net/colreorder/2.0.2/js/dataTables.colReorder.min.js"></script>
+  <!-- This plugin gives you real click-and-drag column resizing -->
+  <script src="https://cdn.jsdelivr.net/npm/datatables-colresize@1.0.2/datatables.colresize.js"></script>
 
   <style>
-    html,body{height:100%;margin:0;background:#0d0d0d;color:#eee;font-family:Arial,sans-serif;overflow:hidden;}
-    .header{position:fixed;top:0;width:100%;background:#000;color:#ffcc00;padding:14px;text-align:center;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.8);}
-    .header a{color:#ffcc00;text-decoration:none;margin:0 15px;}
+    html,body{height:100%;margin:0;background:#0d0d0d;color:#eee;font-family:Arial;overflow:hidden;}
+    .header{position:fixed;top:0;width:100%;background:#000;color:#ffcc00;padding:14px;text-align:center;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.8);font-size:1.1em;}
+    .header a{color:#ffcc00;text-decoration:none;}
     .main{padding-top:70px;height:100%;box-sizing:border-box;}
-    table.dataTable thead .sorting,
-    table.dataTable thead .sorting_asc,
-    table.dataTable thead .sorting_desc {background:#222;color:#ffcc00;}
-    table.dataTable tbody td{background:#111;padding:8px 4px;font-size:0.94em;text-align:center;}
+    table.dataTable thead th{background:#222;color:#ffcc00;padding:12px;}
+    table.dataTable tbody td{background:#111;padding:8px 4px;text-align:center;font-size:0.94em;}
     table.dataTable tbody tr:hover{background:#1f1f1f;}
     .dataTables_filter input{background:#000;color:#ffcc00;border:1px solid #ffcc00;border-radius:4px;padding:6px;}
-    /* This makes the resize handles visible */
-    table.dataTable thead th {position:relative;}
-    table.dataTable thead th::after {
-      content:''; position:absolute; right:0; top:0; bottom:0; width:6px; cursor:col-resize;
-    }
+    .dataTables_length select,.dataTables_info{color:#ffcc00;}
+    .paginate_button{color:#ffcc00!important;background:#000!important;border:1px solid #ffcc00!important;}
+    .paginate_button.current{background:#ffcc00!important;color:#000!important;}
   </style>
 </head>
 <body>
@@ -48,39 +42,39 @@
     <table id="knightTable" class="display responsive nowrap" style="width:100%">
       <thead>
         <tr>
-          <th>Level</th><th>Tier</th><th>Type</th><th>Item Name</th>
-          <th>Def</th><th>M Def</th><th>Str</th><th>Agil</th><th>HP</th><th>Obtain</th>
+          <th>Level</th><th>Class</th><th>Tier</th><th>Type</th><th>Item Name</th>
+          <th>Def</th><th>M Def</th><th>Str</th><th>Agil</th><th>HP</th><th>How to Obtain</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- ALL YOUR ROWS GO HERE — I’m pasting the complete tbody below this code block -->
-      </tbody>
+      <tbody></tbody> <!-- Data loaded automatically from your CSV -->
     </table>
   </div>
 
   <script>
     $(document).ready(function() {
       $('#knightTable').DataTable({
+        ajax: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy-20CSaKPA1NezLhzfUw_a_5BRoQjqJ9wei4ZJ-rP6e3ZZ0KHt2H-VRnzeR3jDSGnbYsaTTLv5Qay/pub?output=csv',
+        processing: true,
         paging: true,
         pageLength: 25,
-        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-        fixedHeader: { header: true },
+        lengthMenu: [[10,25,50,100,-1],[10,25,50,100,"All"]],
+        fixedHeader: true,
         responsive: true,
-        colReorder: { realtime: true },     // lets you drag columns to reorder (bonus)
-        scrollY:        'calc(100vh - 80px)',
+        colReorder: true,
+        scrollY: 'calc(100vh - 80px)',
         scrollCollapse: true,
-        scroller:       true,
         order: [[0, 'asc']],
-        // THIS LINE ENABLES REAL CLICK-AND-DRAG COLUMN RESIZING
-        colResize: true
+        // REAL click-and-drag column resizing + remembers user widths
+        colResize: {
+          isEnabled: true,
+          hoverClass: 'dt-colresizable-hover',
+          minWidth: 30,
+          saveState: true,
+          saveStateDuration: -1  // forever
+        }
       });
     });
   </script>
-
-  <!-- You still get the ad banner if you want it -->
-  <div style="position:fixed;bottom:0;width:100%;background:#000;text-align:center;padding:8px;z-index:1000;">
-    <!-- your adsense code here -->
-  </div>
 
 </body>
 </html>
