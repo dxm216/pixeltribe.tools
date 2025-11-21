@@ -1,0 +1,46 @@
+:root{
+  --bg:#0f0f11;
+  --panel:#121216;
+  --muted:#bdb1a1;
+  --gold:#c59d3b;
+  --accent:#f5e9c2;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--accent);
+  font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  margin:0;
+  padding:0;
+}
+
+.site-header, .site-footer {
+  background: linear-gradient(90deg, rgba(20,18,16,0.9), rgba(16,14,12,0.9));
+  color:var(--accent);
+  padding: 12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.branding h1{margin:0;color:var(--gold);font-size:1.2rem}
+.main-nav a{color:var(--muted);margin-right:12px;text-decoration:none}
+.main-nav a:hover{color:var(--gold)}
+
+.container{max-width:1180px;margin:18px auto;padding:12px}
+.table-wrap{background:var(--panel);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.tabulator { font-size: 13px; border-radius: 6px; overflow: hidden; }
+.ad-slot{min-height:60px}
+
+/* anti-select (applied only to the table container by JS, not globally) */
+.noselect { user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+
+/* Provide visible placeholder for empty cells if JS cannot convert */
+td.empty-cell { color: var(--muted); font-style: italic; }
+
+/* responsiveness */
+@media (max-width:720px){
+  .site-header{flex-direction:column;align-items:flex-start}
+}
