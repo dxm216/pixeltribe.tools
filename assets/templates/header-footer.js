@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Load Header
-  fetch("/assets/templates/header.html")
+  fetch("../../assets/templates/header.html")
     .then(res => res.text())
     .then(html => {
       const container = document.getElementById("header-container");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   // Load Footer
-  fetch("/assets/templates/footer.html")
+  fetch("../../assets/templates/footer.html")
     .then(res => res.text())
     .then(html => {
       const container = document.getElementById("footer-container");
