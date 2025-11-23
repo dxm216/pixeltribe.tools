@@ -4,50 +4,56 @@
   <meta charset="UTF-8">
   <title>Knight Armor</title>
 
-  <!-- Tabulator CSS -->
-  <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+  <!-- Correct relative path (2 levels up) -->
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link href="https://unpkg.com/tabulator-tables@6.2.5/dist/css/tabulator.min.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- HEADER -->
-  <div id="header-container"></div>
+  <div id="header"></div>
 
   <h1>Knight Armor</h1>
+  <div id="armor-table"></div>
 
-  <!-- Table container -->
-  <div id="knight-table"></div>
+  <div id="footer"></div>
 
-  <!-- FOOTER -->
-  <div id="footer-container"></div>
-
-  <!-- Tabulator JS -->
-  <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
-
-  <!-- Correct paths based on your repo -->
+  <!-- Correct paths -->
+  <script src="https://unpkg.com/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
   <script src="../../assets/js/tabulator-common.js"></script>
   <script src="../../assets/templates/header-footer.js"></script>
 
   <script>
-    const columns = [
-      {title: "level", field: "level"},
-      {title: "class", field: "class"},
-      {title: "material tier", field: "material tier"},
-      {title: "type", field: "type"},
-      {title: "item name", field: "item name"},
-      {title: "Def (min", field: "Def (min"},
-      {title: "Def (max)", field: "Def (max)"},
-      {title: "M Def (min)", field: "M Def (min)"},
-      {title: "M Def (max)", field: "M Def (max)"},
-      {title: "Str (min)", field: "Str (min)"},
-      {title: "Str (max)", field: "Str (max)"},
-      {title: "Agil (min)", field: "Agil (min)"},
-      {title: "Agil (max)", field: "Agil (max)"},
-      {title: "HP (min)", field: "HP (min)"},
-      {title: "HP (max)", field: "HP (max)"}
-    ];
+    loadHeaderFooter(); // from header-footer.js
 
-    loadTable("#knight-table", "../../data/equipment/armor-knight.json", columns);
+    // Tabulator: Map your weird Excel column names
+    const table = new Tabulator("#armor-table", {
+      layout: "fitDataFill",
+      ajaxURL: "../../data/equipment/armor-knight.json",
+
+      columns: [
+        { title: "Level", field: "level" },
+        { title: "Class", field: "class" },
+        { title: "Type", field: "type" },
+        { title: "Material Tier", field: "material tier" },
+        { title: "Item Name", field: "item name" },
+
+        // --- Mapped Excel Weird Columns ---
+        { title: "DEF Min", field: "Def (min)" },
+        { title: "DEF Max", field: "Def (max)" },
+
+        { title: "MDEF Min", field: "M Def (min)" },
+        { title: "MDEF Max", field: "M Def (max)" },
+
+        { title: "STR Min", field: "Str (min)" },
+        { title: "STR Max", field: "Str (max)" },
+
+        { title: "AGI Min", field: "Agil (min)" },
+        { title: "AGI Max", field: "Agil (max)" },
+
+        { title: "HP Min", field: "HP (min)" },
+        { title: "HP Max", field: "HP (max)" },
+      ],
+    });
   </script>
 
 </body>
