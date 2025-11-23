@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Knight Armor</title>
@@ -24,30 +24,27 @@
   <!-- Tabulator JS -->
   <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
 
-  <!-- Common table settings -->
+  <!-- Correct paths based on your repo -->
   <script src="../../assets/js/tabulator-common.js"></script>
-
-  <!-- Header/footer loader -->
   <script src="../../assets/templates/header-footer.js"></script>
 
   <script>
     const columns = [
-      {title: "Level", field: "level"},
-      {title: "Class", field: "class"},
-      {title: "Tier", field: "tier"},
-      {title: "Type", field: "type"},
-      {title: "Name", field: "name"},
-      {title: "DEF Min", field: "def_min"},
-      {title: "DEF Max", field: "def_max"},
-      {title: "MDEF Min", field: "mdef_min"},
-      {title: "MDEF Max", field: "mdef_max"},
-      {title: "STR Min", field: "str_min"},
-      {title: "STR Max", field: "str_max"},
-      {title: "AGI Min", field: "agil_min"},
-      {title: "AGI Max", field: "agil_max"},
-      {title: "HP Min", field: "hp_min"},
-      {title: "HP Max", field: "hp_max"},
-      {title: "Obtain", field: "obtain"}
+      {title: "level", field: "level"},
+      {title: "class", field: "class"},
+      {title: "material tier", field: "material tier"},
+      {title: "type", field: "type"},
+      {title: "item name", field: "item name"},
+      {title: "Def (min", field: "Def (min"},
+      {title: "Def (max)", field: "Def (max)"},
+      {title: "M Def (min)", field: "M Def (min)"},
+      {title: "M Def (max)", field: "M Def (max)"},
+      {title: "Str (min)", field: "Str (min)"},
+      {title: "Str (max)", field: "Str (max)"},
+      {title: "Agil (min)", field: "Agil (min)"},
+      {title: "Agil (max)", field: "Agil (max)"},
+      {title: "HP (min)", field: "HP (min)"},
+      {title: "HP (max)", field: "HP (max)"}
     ];
 
     loadTable("#knight-table", "../../data/equipment/armor-knight.json", columns);
