@@ -4,22 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Tribe Tools • dxm216</title>
+
   <style>
-    body{background:#0d0d0d;color:#eee;font-family:Arial,sans-serif;margin:0;padding:20px;text-align:center;}
-    .container{max-width:960px;margin:0 auto;}
-    h1{color:#ffcc00;font-size:2.8em;margin:20px 0 10px;}
-    .dropdowns{margin:50px 0;}
-    select{
-      background:#000;color:#ffcc00;border:2px solid #ffcc00;padding:14px 50px 14px 20px;
-      font-size:18px;margin:12px;border-radius:8px;cursor:pointer;min-width:300px;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffcc00' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
-      background-repeat:no-repeat;background-position:right 20px center;
+    body {
+      background: #0d0d0d;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
     }
-    select:hover{border-color:#fff;}
-    footer{margin-top:80px;color:#888;}
-    a{color:#ffcc00;}
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #ffcc00;
+      font-size: 2.8em;
+      margin: 20px 0 10px;
+    }
+    .dropdowns {
+      margin: 50px 0;
+    }
+    select {
+      background: #000;
+      color: #ffcc00;
+      border: 2px solid #ffcc00;
+      padding: 14px 50px 14px 20px;
+      font-size: 18px;
+      margin: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      min-width: 300px;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ffcc00' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+    }
+    select:hover {
+      border-color: #fff;
+    }
+    footer {
+      margin-top: 80px;
+      color: #888;
+    }
+    a {
+      color: #ffcc00;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Pixel Tribe Tools</h1>
@@ -27,22 +61,22 @@
 
     <div class="dropdowns">
 
-      <!-- 1. Equipment -->
-      <select onchange="if(this.value)window.location=this.value;">
-        <option>Equipment</option>
+      <!-- Equipment Dropdown -->
+      <select onchange="if(this.value !== '') window.location = this.value;">
+        <option value="">Equipment</option>
         <optgroup label="Armor">
           <option value="/equipment/armor/knight.html">Knight</option>
         </optgroup>
       </select>
 
-      <!-- 2. Skills -->
-      <select onchange="if(this.value)window.location=this.value;">
-        <option>Skills</option>
+      <!-- Skills -->
+      <select onchange="if(this.value !== '') window.location = this.value;">
+        <option value="">Skills</option>
       </select>
 
-      <!-- 3. Crafting -->
-      <select onchange="if(this.value)window.location=this.value;">
-        <option>Crafting</option>
+      <!-- Crafting -->
+      <select onchange="if(this.value !== '') window.location = this.value;">
+        <option value="">Crafting</option>
       </select>
 
     </div>
