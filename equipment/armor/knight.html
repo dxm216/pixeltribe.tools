@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Knight Armor</title>
 
-  <!-- Correct relative path (2 levels up) -->
-  <link rel="stylesheet" href="../../assets/css/site.css">
+  <!-- Absolute path from root -->
+  <link rel="stylesheet" href="/assets/css/site.css">
   <link href="https://unpkg.com/tabulator-tables@6.2.5/dist/css/tabulator.min.css" rel="stylesheet">
 </head>
 
@@ -17,18 +17,17 @@
 
   <div id="footer"></div>
 
-  <!-- Correct paths -->
+  <!-- Scripts with absolute paths -->
   <script src="https://unpkg.com/tabulator-tables@6.2.5/dist/js/tabulator.min.js"></script>
-  <script src="../../assets/js/tabulator-common.js"></script>
-  <script src="../../assets/templates/header-footer.js"></script>
+  <script src="/assets/js/tabulator-common.js"></script>
+  <script src="/assets/templates/header-footer.js"></script>
 
   <script>
     loadHeaderFooter(); // from header-footer.js
 
-    // Tabulator: Map your weird Excel column names
     const table = new Tabulator("#armor-table", {
       layout: "fitDataFill",
-      ajaxURL: "../../data/equipment/armor-knight.json",
+      ajaxURL: "/data/equipment/armor-knight.json",
 
       columns: [
         { title: "Level", field: "level" },
@@ -36,25 +35,18 @@
         { title: "Type", field: "type" },
         { title: "Material Tier", field: "material tier" },
         { title: "Item Name", field: "item name" },
-
-        // --- Mapped Excel Weird Columns ---
         { title: "DEF Min", field: "Def (min)" },
         { title: "DEF Max", field: "Def (max)" },
-
         { title: "MDEF Min", field: "M Def (min)" },
         { title: "MDEF Max", field: "M Def (max)" },
-
         { title: "STR Min", field: "Str (min)" },
         { title: "STR Max", field: "Str (max)" },
-
         { title: "AGI Min", field: "Agil (min)" },
         { title: "AGI Max", field: "Agil (max)" },
-
         { title: "HP Min", field: "HP (min)" },
         { title: "HP Max", field: "HP (max)" },
       ],
     });
   </script>
-
 </body>
 </html>
